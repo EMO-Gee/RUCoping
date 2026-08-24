@@ -15,17 +15,18 @@ To ensure every Rhodes University student has immediate, judgment-free access to
 We prioritize data protection and trauma-informed design. All case reports are routed securely and comply with South African data privacy standards to protect the identity of users.
 
 ## 🛠️ Tech Stack
-*(Add your technologies here, e.g., React, Node.js, Firebase, MySQL, etc.)*
-
-## 🚀 Getting Started
-
-1. Clone the repo: `git clone https://github.com/your-username/RUCoping.git`
-2. Install dependencies: `npm install` *(or your specific command)*
-3. Set up your environment variables for secure counselor email routing.
-4. Run the development server: `npm start`
+- HTML
+- CSS
+- JavaScript
+- PHP
+- MySQL
 
 ## 🤝 Contributing
 This project is aimed at supporting the Rhodes community. If you are a student or developer looking to improve accessibility, feel free to open a pull request.
 
-## 📬 Contact & Support
-For critical issues regarding the app's functionality, please reach out to the IT/Wellness department at Rhodes.
+## 📬Founders and creators of this project:
+- Rowan Fortune
+- Ulelethu Rigala
+- Kganyiso Sediti
+- Othandwayo Myona
+- Caitlin Elliot
