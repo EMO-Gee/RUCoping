@@ -1,0 +1,596 @@
+/*Global Reset and Performance*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F1E3F3;
+    color: #484041;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header{
+    background-color:#792eb2;
+    position:fixed;
+    top: 0;
+    width:100%;
+    padding: 10px 0;
+    transition: all 0.4s ease; 
+    box-shadow: 0 2px 10px rgba(0,0,0,1);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    text-decoration:none;
+    color:#ffffff;
+}
+
+.header-container{
+    width:97%;
+    /*max-width: 1200px;
+    margin: 0 auto;*/
+    display:flex;
+    justify-content: space-between;
+    align-items: center;   
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav a{
+    text-decoration:none;
+    color:#ffffff;
+    margin:0 15px;
+    font-weight: 500;
+}
+
+.header-right a{
+    text-decoration:none;
+    color:#ffffff;
+    margin:0 15px;
+    font-weight: 500;
+}
+
+.notification{
+    display:none;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 30px;
+   height: 20px;
+   cursor: pointer;
+}
+
+.hamburger span{
+    height: 3px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:checked ~ .menu-nav {
+    right: 0;
+}
+
+.menu-nav {
+    position: fixed;
+    top: 55px;
+    right: -100%;
+    width: 250px;
+    height: auto;
+    background-color: #792EB2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding:20px;
+    transition: 0.4s ease; 
+}
+
+.menu-nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:15px;  
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);  
+}
+
+/* Container for the label + toggle */
+.menu-nav .switch {
+    display: flex;
+    align-items: left; 
+    justify-content: center; 
+    gap: 10px; /* space between label and toggle */
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    color: #FFFFFF; 
+    font-weight: bold;
+    padding: 15px;
+}
+
+/* Hide the default checkbox */
+.menu-nav .switch input {
+    display: none;
+}
+
+/* The slider */
+.menu-nav .switch .slider {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+/* Circle inside slider */
+.menu-nav .switch .slider::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 2px;
+    top: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+/* Toggle checked state */
+.menu-nav .switch input:checked + .slider {
+    background-color: #4CAF50; /* green when ON */
+}
+
+.menu-nav .switch input:checked + .slider::before {
+    transform: translateX(20px);
+}
+
+.logo{
+    text-decoration:none;
+    color:#ffffff;
+}
+
+.logo-text{
+    color:#ffffff;
+    font-weight: 700;
+    text-decoration:none;
+    font-size: 30px;
+}
+
+.fa-spa{
+    font-size: 30px;
+    text-decoration:none;
+}
+
+/*Header and Navigation*/
+/*header {
+    background-color: #792EB2;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    text-decoration: none;
+    color: #FFFFFF;
+}*/
+
+/*.header-container {
+    width: 97%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}*/
+
+/*.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}*/
+
+/*nav{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav a{
+    text-decoration:none;
+    color:#ffffff;
+    margin:0 15px;
+    font-weight: 500;
+}
+
+
+.header-right a{
+    text-decoration:none;
+    color:#ffffff;
+    margin:0 15px;
+    font-weight: 500;
+}
+
+
+.logo-text {
+    color: #FFFFFF;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 30px;
+}*/
+
+
+/*.logo {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}*/
+
+/*Nav Links*/
+/*.desktop-nav a{
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+.hamburger span {
+    height: 3px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+
+.menu-toggle:checked ~ .menu-nav {
+    right: 0;
+}
+
+
+.menu-nav {
+    position: fixed;
+    top: 55px;
+    right: -100%;
+    width: 250px;
+    height: auto;
+    background-color: #792EB2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    transition: 0.4s ease; 
+}
+
+
+.menu-nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding:15px;  
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);  
+}*/
+
+/*@media (min-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+    .hamburger {
+        display: flex !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .hamburger, .menu-nav {
+        display: none !important;
+    }
+    .desktop-nav {
+        display: flex;
+        gap: 20px;
+    }
+}
+
+
+.menu-nav .switch {
+    display: flex;
+    align-items: left; 
+    gap: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    color: #FFFFFF; 
+    font-weight: bold;
+    padding: 15px;
+}
+
+
+.menu-nav .switch input {
+    display: none;
+}
+
+
+.menu-nav .switch .slider {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+
+.menu-nav .switch .slider::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 2px;
+    top: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}*/
+
+
+/* .menu-nav .switch input:checked + .slider {
+    background-color: #4CAF50; green when ON 
+}*/
+
+
+/*.menu-nav .switch input:checked + .slider::before {
+    transform: translateX(20px);
+}*/
+
+/*.menu-toggle {
+    display: none;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+h1 {
+    color: #792EB2;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p {
+    color: #484041;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}*/
+
+/*Review Section*/
+.review-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background-color: #FFFFFF;
+    border: 2px solid #D3D3D3;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    
+}
+
+/*Text Styles*/
+.quote {
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.student-tag {
+    font-weight: bold;
+    color: #792EB2;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.btn-review {
+    display: inline-block;
+    background-color: #53D8FB; 
+    color: #484041;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 2px solid #66C3FF;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-review:hover {
+    background-color: #66C3FF;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    color: #1A1A1A;
+}
+
+/*Footer*/
+footer{
+    background-color:#1F1F1F;
+    color:#ffffff;
+    padding:30px 20px;
+    height:min-content;
+    color: #B0B0B0;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h6 {
+    color: #FFFFFF;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.footer-section a {
+    color: #792EB2;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-section a:hover {
+    color: #66C3FF
+}
+
+/*SOCIAL MEDIA LINKS*/
+ .socials {
+    display: flex;
+    gap: 20px;
+    font-size: 24px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.social-icons i {
+    font-size: 24px;
+    color: #f1e3f3;
+    transition: transform 0.3s ease;
+}
+
+.social-icons i:hover {
+    color: #792EB2;
+    transform: scale(1.2);
+}
+
+@keyframes fadeInUp{ /*additional creative work*/
+    from{
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media(max-width: 768px){ /*adjust to tablet/large phone*/
+    .intro-container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .article-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .header{
+        font-size: 1rem;
+    }
+    .article-grid{
+        font-size: 1rem;
+    }
+    .heading,.intro-title,.article-title{
+        font-size: 24px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+}
+/*Dark mode*/
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header {
+    background-color: #333;
+}
+
+body.dark-mode .menu-nav {
+    background-color: #222;
+}
+
+body.dark-mode .menu-nav a,
+body.dark-mode .switch {
+    color: #f1f1f1;
+}
+body.dark-mode .review-card{
+    background-color: #2a2a2a;
+    color: #f1f1f1;
+    border: none;
+    padding: 10px; 
+    margin-bottom: 20px;
+}

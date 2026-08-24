@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sexual Assault Reports - Admin</title>
+<link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2>RUCoping Admin Panel</h2>
+        <a href="admin-dashboard.html">Dashboard</a>
+        <a href="admin-testimonials.html">Pending Testimonials</a>
+        <a href="admin-reports.html">Sexual Assault Reports</a>
+        <a href="admin-appointments.html">Appointments</a>
+        <a href="admin-stats.html">Statistics</a>
+        <a href="Login.html">Logout</a>
+    </div>
+
+    <div class="main">
+        <h1>New Sexual Assault Reports</h1>
+
+        <div class="card">
+        <p><strong>Report ID:</strong> SA1045</p>
+        <p><strong>Date:</strong> 14 May 2026</p>
+        <p><strong>Anonymous:</strong> No</p>
+        <p><strong>Description:</strong> The person ignored repeated refusal.</p>
+        <form action="send_response.php" method="POST">
+            <h4>Respond to User</h4>
+            <textarea rows="4" placeholder="Type response..."></textarea>
+            <button type="submit" class="btn respond">Send Response</button>
+        </form>
+    </div>
+
+
+
+    <script src="admin-testimonials.js"></script>
+    <script src = "darkmode.js"></script>
+
+</body>
+</html>

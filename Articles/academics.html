@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Academic Resources</title> <!--<i class="fa-solid fa-spa"></i>-->
+        <link rel="stylesheet" href="articles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    
+    <body>
+
+        <!-- Header and Navigation Menu -->
+        <header class="header">
+            <h1 class="logo"><i class="fa-solid fa-spa"></i>RuCOPING</h1>
+            
+            <a href="../index.html" class="home-btn">Home</a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label class="hamburger" for="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Navigation Links -->
+            <nav class="menu-nav">
+                <a href="#study-strategies">Smart Study Strategies</a>
+                <a href="#time-management">Time Management & Burnout</a>
+                <a href="#resources">Finding Campus Resources</a>
+                <label class="switch">
+                        Dark Mode
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="slider round"></span>
+                </label>
+            </nav>
+        </header>
+
+        <canvas class="ribbon"></canvas>
+
+        <section class="intro" style="background-image: url('philippe-bout-93W0xn4961g-unsplash.jpg'); background-size: cover; background-position: center;">
+            <section class="intro-overlay">
+                <h1>Academic Resources</h1>
+                <p>Tools and tips to help you succeed in your studies</p>
+            </section>
+        </section>
+
+        <!-- Main Content -->
+        <main class="content">
+            <article class="card" id="study-strategies">
+                <h2><i class="fa-solid fa-book-open"></i>Smart Study Strategies</h2>
+                <p>Instead of cramming, try breaking your study sessions into focused 25-minute intervals with 5-minute breaks in between (Pomodoro Technique). This can help improve concentration and retention. Also, consider using active recall and spaced repetition techniques to enhance memory. Don't just re-read your notes - quiz yourself or teach the material to a friend to really solidify your understanding.</p>
+            </article>
+
+            <article class="card" id="time-management">
+                <h2><i class="fa-solid fa-clock"></i>Time Management & Burnout</h2>
+                <p>Struggling to balance your studies with social life and self-care? Remember, it's okay to say no to some social events if you need to focus on your work. Use a planner or digital calendar to keep track of your commitments, and make sure to set aside time for activities that help you relax and recharge.</p>
+            </article>
+
+            <article class="card" id="resources">
+                <h2><i class="fa-solid fa-graduation-cap"></i>Finding Campus Resources</h2>
+                <p>Don't forget about the amazing resources available on campus! The library offers amazing services, and there are often workshops on time management and exam preparation. Check out the <a href="https://www.ru.ac.za/dssd/studentservices/" style="color: #4B0082">student services website</a> for more information on how to access these resources.</p>
+            </article>
+        </main>
+
+        <!-- SOS Button -->
+        <a href="tel:+27466037070" class="button">SOS</a>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <section class="footer-container">
+                <p>Copyright &copy; 2026 RUCoping. All rights reserved.</p>
+            </section>
+        </footer>
+        <script src="articles.js"></script>
+    </body>
+</html>

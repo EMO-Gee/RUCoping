@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requirements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f5f5f5;
+        }
+        button {
+            margin: 10px 0;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        div.output {
+            background-color: #fff;
+            padding: 15px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Requirements</h1>
+    <p>These are all of the requirements for the practical that did not
+        work with our website.
+    </p>
+
+    <button onclick="showUserAgent()">Show User Agent</button>
+    <button onclick="showPlatform()">Show Platform</button>
+    <button onclick="showLanguage()">Show Language</button>
+    <button onclick="showOnlineStatus()">Check Online Status</button>
+    <button onclick="showCookiesEnabled()">Check Cookies Enabled</button>
+    <button onclick="getGeolocation()">Show My Location</button>
+    <button onclick="checkShareAPI()">Check Share API</button>
+
+    <div id="output" class="output">Output will appear here...</div>
+
+    <script>
+        //properties
+
+        function showUserAgent()
+        {
+            document.getElementById("output").innerHTML = "User agent: " + navigator.userAgent;
+        }
+
+        function showPlatform()
+        {
+            document.getElementById("output").innerHTML ="platform: " + navigator.platform;
+        }
+
+
+        function showLanguage()
+        {
+            document.getElementById("output").innerHTML = "Language: " + navigator.language;
+        }
+
+        function showOnlineStatus()
+        {
+            document.getElementById("output").innerHTML = "Online status: " + (navigator.onLine? "Online" : "Offline");
+        }
+
+        function showCookiesEnabled()
+        {
+            document.getElementById("output").innerHTML ="Cookies: " + navigator.cookieEnabled;
+        }
+
+        //functions
+        function getGeolocation()
+        {
+            if(navigator.geolocation)
+            {
+                navigator.geolocation.getCurrentPosition
+                (function(position)
+                {
+                    document.getElementById("output").innerHTML = "latitude: " + position.coords.latitude + "<br>Longitude: "+ position.coords.longitude;
+                },
+                    function(error)
+                    {
+                        document.getElementById("output").innerHTML = "Error: " + error.message;
+                    }
+                );
+            }
+            else
+            {
+                document.getElementById("output").innerHTML = "Geolocation not available";
+            }
+        }
+
+        function checkShareAPI()
+        {
+            if (navigator.share)
+            {
+                navigator.share
+                ({
+                    title: "Requirement",
+                    text: "pretending to send text",
+                    url: window.location.href
+                })
+                .then(()=> 
+                {
+                    document.getElementById("output").innerHTML = "sent";
+                })
+                .catch((error)=>
+                {
+                    document.getElementById("output").innerHTML = "Error" + error;
+                });
+            }
+            else
+            {
+                document.getElementById('output').innerHTM = "Share API not posible";
+            }
+        }
+    </script>
+</body>
+</html>

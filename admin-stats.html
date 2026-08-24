@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Statistics - Admin</title>
+<link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>RUCoping Admin Panel</h2>
+    <a href="admin-dashboard.html">Dashboard</a>
+    <a href="admin-testimonials.html">Pending Testimonials</a>
+    <a href="admin-reports.html">Sexual Assault Reports</a>
+    <a href="admin-appointments.html">Appointments</a>
+    <a href="admin-stats.html">Statistics</a>
+    <a href="Login.html">Logout</a>
+</div>
+
+
+<div class="main">
+    <h1>System Statistics</h1>
+
+    <div class="stats-cards">
+        <div class="card">
+            <p>Total Registered Users</p>
+            <div class="stat-number">342</div>
+        </div>
+
+        <div class="card">
+            <p>New Sexual Assault Reports</p>
+            <div class="stat-number">3</div>
+        </div>
+
+        <div class="card">
+            <p>Appointments This Week</p>
+            <div class="stat-number">12</div>
+        </div>
+    </div>
+
+</div>
+
+<section class="charts" style="max-width:960px;margin:18px auto;padding:0 18px;">
+    <div class="card">
+        <h3>Reports by Month</h3>
+        <canvas id="reportsByMonth" width="800" height="320"></canvas>
+    </div>
+
+    <div class="card">
+        <h3>Appointments (past 8 weeks)</h3>
+        <canvas id="appointmentsTrend" width="800" height="320"></canvas>
+    </div>
+
+    <div class="card">
+        <h3>Testimonials Status</h3>
+        <canvas id="testimonialsPie" width="400" height="240"></canvas>
+    </div>
+</section>
+
+<!-- Chart library and admin stats script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="admin-testimonials.js"></script>
+<script src="admin-stats.js"></script>
+<!--Rowan-->
+ <script src = "darkmode.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Appointments - Admin</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>RUCoping Admin Panel</h2>
+    <a href="admin-dashboard.php">Dashboard</a>
+    <a href="admin-testimonials.php">Pending Testimonials</a>
+    <a href="admin-reports.php">Sexual Assault Reports</a>
+    <a href="admin-appointments.html">Appointments</a>
+    <a href="admin-stats.php">Statistics</a>
+    <a href="logout.php">Logout</a>
+</div>
+
+<div class="main">
+    <input type="text" id="searchInput" placeholder="Search by Student ID or Type..." class="search-bar" for="searchInput">
+
+    <select id="sortSelect">
+        <option value="asc">Sort by Date (Oldest)</option>
+        <option value="desc">Sort by Date (Newest)</option>
+    </select>
+
+    <!--Kganyi-->
+    <h1>Pending Approval</h1>
+    <div class="card" id="appointment-249560">
+        <span class="date">Requested: 15 May 2026 - 09:50</span>
+        <p>Student ID: 249560 | Initial Consultation</p>
+        <button class="approve" onclick="approveAppointment(249560)">Approve</button>
+        <button class="reject">Reject</button>
+    </div>
+
+    <div class="card" id="appointment-220321">
+        <span class="date">Requested: 20 May 2026 - 11:50</span>
+        <p>Student ID: 220321 | Initial Consultation</p>
+        <button class="approve" onclick="approveAppointment(220321)">Approve</button>
+        <button class="reject">Reject</button>
+    </div>
+
+    <div class="card" id="appointment-237199">
+        <span class="date">Requested: 24 May 2026 - 15:10</span>
+        <p>Student ID: 237199 | Initial Consultation</p>
+        <button class="approve" onclick="approveAppointment(237199)">Approve</button>
+        <button class="reject">Reject</button>
+    </div>
+
+    <!--Otha-->
+    <h1>Upcoming Appointments </h1>
+
+    
+    <div class="card">
+        <span class="date">16 May 2026 - 09:00</span>
+        <p>Student ID: 204578 | Counselling</p>
+        <button class="approve">Mark Complete</button>
+        <button class="reject">Cancel</button>
+    </div>
+
+    <div class="card">
+        <span class="date">16 May 2026 - 13:30</span>
+        <p>Student ID: 208945 | Follow-up</p>
+        <button class="approve">Mark Complete</button>
+        <button class="reject">Cancel</button>
+    </div>
+
+    <div class="card">
+        <span class="date">17 May 2026 - 10:15</span>
+        <p>Student ID: 203456 | Trauma Support</p>
+        <button class="approve">Mark Complete</button>
+        <button class="reject">Cancel</button>
+    </div>
+
+</div>
+
+<script src="admin-testimonials.js"></script>
+ <!--Rowan-->
+ <script src = "darkmode.js"></script>
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set Appointment - RuCOPING</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    /* ensure page content is not hidden behind the fixed header */
+    body {
+        background-color: #F1E3F3;
+        color: #484041;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding-top: 80px; /* slightly larger than header height */
+    }
+
+    /*header formatting*/
+    header{
+    background-color:#792eb2;
+    position:fixed;
+    top:0;
+    width:100%;
+    padding: 10px 0;
+    transition: all 0.4s ease; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    backdrop-filter: blur(6px);
+    z-index: 2000;
+    text-decoration:none;
+    color:#ffffff;
+    }
+
+    .header-container{
+    width:97%;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    nav{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    nav a{
+        text-decoration:none;
+        color:#ffffff;
+        margin:0 15px;
+        font-weight: 500;
+    }
+
+    .header-right a{
+        text-decoration:none;
+        color:#ffffff;
+        margin:0 15px;
+        font-weight: 500;
+    }
+
+.notification{
+    display:none;
+}
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+   display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger span{
+    height: 3px;
+    width: 100%;
+    background-color: #F1E3F3;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:checked ~ .menu-nav {
+    right: 0;
+}
+
+.menu-nav {
+    position: fixed;
+    top: 53px;
+    right: -100%;
+    width: 250px;
+    height:auto;
+   
+    background-color: #792EB2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding:20px;
+    transition: 0.4s ease;
+    /*border-left: 3px solid #66C3FF;*/
+}
+
+.menu-nav a {
+    color: #F1E3F3;
+    text-decoration: none;
+    padding:15px;  
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);   
+}
+
+/* Container for the label + toggle */
+.menu-nav .switch {
+    display: flex;
+    align-items: left; 
+    justify-content: center; 
+    gap: 10px; /* space between label and toggle */
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    
+    color: #f1e3f3; 
+  
+    font-weight: bold;
+    padding:15px;
+}
+
+/* Hide the default checkbox */
+.menu-nav .switch input {
+    display: none;
+}
+
+/* The slider */
+.menu-nav .switch .slider {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+/* Circle inside slider */
+.menu-nav .switch .slider::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 2px;
+    top: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+/* Toggle checked state */
+.menu-nav .switch input:checked + .slider {
+    background-color: #4CAF50; /* green when ON */
+}
+
+.menu-nav .switch input:checked + .slider::before {
+    transform: translateX(20px);
+}    
+
+        /* container + card */
+        .container{ 
+            max-width:780px; 
+            margin:20px auto; 
+            padding:0 20px; 
+            box-sizing:border-box; 
+            position: relative; /* ensure content stacks above ribbon */
+            z-index: 2;
+        }
+        .card{ 
+            background:#fff; 
+            border-radius:10px; 
+            padding:18px; 
+            box-shadow:0 6px 18px rgba(0,0,0,0.06); 
+            margin-bottom:18px; 
+            position: relative; /* ensure content stacks above ribbon */
+            z-index: 2;
+        }
+        h1{ 
+            color:#792EB2; 
+            text-align:center; 
+        }
+        label{ 
+            display:block; 
+            margin-top:12px; 
+            font-weight:600; 
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="time"], select, textarea{ 
+            width:100%; 
+            padding:10px; 
+            border:1px solid rgba(72,64,65,0.15); 
+            border-radius:6px; 
+            margin-top:6px; 
+            font-size:14px; 
+        }
+        textarea{ 
+            min-height:120px; 
+        }
+        .btn{ 
+            display:inline-block; 
+            background:#2B6CB0; 
+            color:white; 
+            padding:12px 18px; 
+            border-radius:6px; 
+            border:none; 
+            cursor:pointer; 
+            margin-top:14px; 
+        }
+
+    .ribbon {
+    position: fixed;
+    top: 0%; /* adjust as needed to position the ribbon higher or lower on the page */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* make sure the ribbon is at the back*/
+    pointer-events: none; /* allow clicks to pass through the ribbon */
+}    
+
+    /* ===== RESPONSIVE ===== */
+
+    /* Tablet */
+    @media (max-width: 768px) {
+
+        .container {
+            margin: 30px auto;
+            padding: 0 6%;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+
+        header {
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 0 6%;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+        }
+
+        button {
+            width: 100%;
+        }
+
+        .checkbox-group {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<!-- navigation bar-->    
+<header>
+    <div class="header-container">
+        <div class="logo-text">
+            <a  href="index.html" class="logo">
+                <i class="fa-solid fa-spa"></i>RuCOPING
+            </a>
+        </div>
+        
+        <div class="header-right">
+                <!--visible navBar -->
+                <a href="index.html">Home</a>
+                <a href="aboutme.html">About Us</a>
+                <a href="Login.html">Login</a>
+                <!--<input type="checkbox" id="menu-toggle" class="menu-toggle">-->
+               
+                <!--Hamburger menu checkbox-->
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <!--hamburger icon-->
+                <label class="hamburger" for="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span> <!--hamburger lines-->
+                </label> 
+                    <!-- Hamburger Links -->
+                    <nav class = "menu-nav">
+                        <a href="admin-dashboard.php">Admin LogIn</a> 
+                        <a href ="appointment.html">Book Appointment with Counsellor</a>
+                        <a href="submit-review.php">Share your Story</a>
+
+                        <label class="switch">
+                            Dark Mode
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </nav>
+            </div>       
+    </div>              
+</header>
+
+<canvas class="ribbon"></canvas>
+
+<div class="container">
+    <div class="card">
+        <h1>Set an Appointment</h1>
+        <p style= "text-align:center">Use this form to request a confidential appointment with a counsellor. We'll contact you to confirm.</p> <!--"color:#484041;-->
+
+        <form action="appointment_booked.php" method="POST">
+            <label for="fullname">First name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your first name" required>
+
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" name="surname" placeholder="Your surname" required>
+
+            <label for="studentNumber">Student Number</label>
+            <input type="text" id="studentNumber" name="studentNumber" placeholder="G" required>
+
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+27 7x xxx xxxx">
+
+            <label for="date">Preferred date</label>
+            <input type="date" id="date" name="date">
+
+            <label for="counsellor">Counsellor (optional)</label>
+            <select id="counsellor" name="counsellor">
+                <option value="">No preference</option>
+                <option value="Councillor 1">Councillor 1</option>
+                <option value="Councillor 2">Councillor 2</option>
+            </select>
+
+            <label for="time">Preferred time</label>
+            <select id="slot_time" name="slot_time">
+                <option value="">Select a date...</option>
+            </select>
+
+            <label for="notes">Notes / reason for appointment (optional)</label>
+            <textarea id="notes" name="notes" placeholder="Anything you want us to know..."></textarea>
+
+            <div style="margin-top:12px;">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent" style="display:inline; font-weight:500; margin-left:8px;">I consent to being contacted to arrange this appointment.</label>
+            </div>
+
+            <button type="submit" class="btn">Request Appointment</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Need immediate help?</h3>
+        <p>If you are in immediate danger please contact emergency services right away.</p>
+        <br><br>
+        <div class="intro-actions">
+            <a href="tel:+27466037070" class="button" id="SOS">SOS</a>
+        </div>
+    </div>
+    
+</div>
+
+<!--FOOTER-->
+<footer>
+<div class = "footer-container">
+<!--DEVELOPERS-->
+    <div class = "footer-section">
+        <h6>DEVELOPERS</h6>
+        <p><i style ="color:gray">
+            Caitlin Elliott: g24e2316@campus.ru.ac.za
+            <br>Rowan Fortune: g23f9661@campus.ru.ac.za
+            <br>Ulelethu Rigala: g24r8054@campus.ru.ac.za
+            <br>Kganyiso Sediti: g23s3219@campus.ru.ac.za
+            <br>Othandwayo Myona: g22m3157@campus.ru.ac.za
+            <br>RuCOPING(c) Copyright</i>
+        </p>
+    </div>
+
+<!--CONTACT US-->
+    <div class = "footer-section">
+        <h6>CONTACT US</h6>
+
+        <p><strong>Health Care Centre</strong><br>
+            Email: <a href="mailto:healthcarecentre@ru.ac.za">healthcarecentre@ru.ac.za</a><br>
+            Phone: <a href="tel:+27466038523">046 603 8523</a>
+        </p>
+
+        <p><strong>Counselling Centre</strong><br>
+            Email: <a href="mailto:counsellingcentre@ru.ac.za">counsellingcentre@ru.ac.za</a><br>
+            Phone: <a href="tel:+27466037070">046 603 7070</a>
+        </p>
+
+    </div>
+
+<!--SOCIALS-->   
+    <div class="footer-section socials">
+        <h6>SOCIAL MEDIA</h6>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/rhodes_university/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/playlist?list=PLV9WJDAawyhbQb_DSKe3rjc9j_dOykynB"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/groups/706769159431821/"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </div>
+
+</div>
+</footer>
+
+<script src="Articles/articles.js"></script>
+<script src="appointment.js"></script>
+
+</body>
+</html>

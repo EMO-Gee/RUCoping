@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pending Testimonials - Admin</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>RUCoping Admin Panel</h2>
+    <a href="admin-dashboard.html">Dashboard</a>
+    <a href="admin-testimonials.html">Pending Testimonials</a>
+    <a href="admin-reports.html">Sexual Assault Reports</a>
+    <a href="admin-appointments.html">Appointments</a>
+    <a href="admin-stats.html">Statistics</a>
+    <a href="Login.html">Logout</a>
+</div>
+
+<div class="main">
+    <h1>Pending Testimonials</h1>
+
+    <div class="card">
+        <p><strong>Name:</strong> Anonymous</p>
+        <p><strong>Year:</strong> 3rd Year</p>
+        <p>"The self-check page helped me understand my situation."</p>
+        <button class="btn approve">Approve</button>
+        <button class="btn reject">Reject</button>
+    </div>
+
+    <div class="card">
+        <p><strong>Name:</strong> Honours Student</p>
+        <p><strong>Year:</strong> Postgraduate student</p>
+        <p>"Very supportive resources during exam time."</p>
+        <button class="btn approve">Approve</button>
+        <button class="btn reject">Reject</button>
+    </div>
+
+    <!-- approved testimonials will be injected here -->
+    <h1 id="approved-header" style="margin-top:40px;">Approved Testimonials</h1>
+    <div id="approvedContainer"></div>
+
+</div>
+
+ <script src="admin-testimonials.js"></script>
+ <!--Rowan-->
+ <script src = "darkmode.js"></script>
+</body>
+</html>

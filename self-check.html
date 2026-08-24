@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sexual Assault Self-Check - RuCOPING</title>
+    <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background-color: #F1E3F3;
+    color: #484041;
+    margin: 0;          /* REMOVE default margin */
+    padding-top: 80px; /* slightly larger than header height */
+    }
+
+    /*header formatting*/
+    header{
+    background-color:#792eb2;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding: 10px 0;
+    transition: all 0.4s ease; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    z-index: 2000;
+    text-decoration:none;
+    color:#ffffff;
+    margin:0;
+    }
+
+    .header-container{
+    width:97%;
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    nav{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    nav a{
+        text-decoration:none;
+        color:#ffffff;
+        margin:0 15px;
+        font-weight: 500;
+    }
+
+    /* page container and card styles */
+    .container {
+        max-width: 780px;
+        margin: 20px auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+        text-align: left;
+        position: relative; /* ensure content stacks above ribbon */
+        z-index: 2;
+    }
+    .ribbon {
+    position: fixed;
+    top: 0%; /* adjust as needed to position the ribbon higher or lower on the page */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* make sure the ribbon is at the back*/
+    pointer-events: none; /* allow clicks to pass through the ribbon */
+}
+
+
+    .card {
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 18px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        margin-bottom: 18px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .card h3, .card h2 { margin-top: 0; color: #5B2A86; }
+
+        h1, h2, h3 {
+            color: #792EB2;
+            text-align:center;
+        }
+
+        .intro {
+            text-align: center;
+            color: #484041;
+            margin-bottom: 20px;
+            text-align:center;
+        }
+
+        .question-group {
+            margin-bottom: 30px;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .answers {
+            margin-bottom: 5px;
+        }
+
+        hr {
+            margin: 30px 0;
+            border: 0;
+            height: 1px;
+            background: rgba(72,64,65,0.08);
+        }
+
+        ul {
+            margin-top: 10px;
+        }
+
+        .actions {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            margin: 10px 10px 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        .report-btn {
+            background-color: #B22222; 
+        }
+
+        .counsellor-btn {
+            background-color: #2B6CB0; 
+        }
+
+        .btn:hover {
+            opacity: 0.95;
+        }
+
+        .support-text {
+            color: #484041;
+            margin-top: 20px;
+        }
+
+    .footer {
+    position: relative;
+    z-index: 1; /*Make sure the ribbon is in the back*/
+    background-color: #484041;
+    text-align: center;
+    color: #F1E3F3;
+    padding: 40px;
+    margin-top: 40px;
+}  
+
+
+
+
+/* ===== RESPONSIVE ===== */
+
+    /* Tablet */
+    @media (max-width: 768px) {
+
+        .container {
+            margin: 30px auto;
+            padding: 0 6%;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+
+        header {
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 0 6%;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+        }
+
+        button {
+            width: 100%;
+        }
+
+        .checkbox-group {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+<!-- navigation bar-->    
+<header>
+    <div class="header-container">
+        
+            
+            <div class="logo-text"><a  href="index.html" class="logo"><i class="fa-solid fa-spa"></i>RuCOPING</a></div>
+        
+        <nav>
+                <!--<a><i class="fa-solid fa-envelope no-notification"></i></a>
+                <a><i class="fa-solid fa-envelope-open-text notification"></i></a>-->
+                <a href="index.html">Home</a>
+                <a href="aboutme.html">About Us</a>
+                <a href="Login.php">Login</a>
+                <div class="dropdown">
+                    <div class="dropbtn"><i class="fa-solid fa-bars"></i></div>
+                    <div class="dropdown-content">
+                        
+                        <label class="switch">
+                        Dark Mode
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="slider round"></span>
+                </label>
+                    </div>
+                </div>
+        </nav>
+        
+    </div>       
+</header>
+
+<canvas class="ribbon"></canvas>
+ 
+<div class="container">
+
+<h1 style="text-align:center;">Sexual Assault Self-Check</h1>
+
+<p class="intro">
+    This checklist is private and not stored.  
+    Answer honestly and count how many times you select <strong>"Yes"</strong>.
+</p>
+
+<form>
+
+<div class="question-group card">
+    <h3>Consent & Control</h3>
+
+    <div class="question">
+        <p>Did someone engage in sexual activity with you without your clear and enthusiastic consent?</p>
+        <div class="answers">
+            <input type="radio" name="q1"> Yes
+            <input type="radio" name="q1"> No
+        </div>
+    </div>
+
+    <div class="question">
+        <p>Did someone ignore you when you said “no”, “stop”, or expressed discomfort?</p>
+        <div class="answers">
+            <input type="radio" name="q2"> Yes
+            <input type="radio" name="q2"> No
+        </div>
+    </div>
+
+    <div class="question">
+        <p>Were you pressured, threatened, or manipulated into sexual activity?</p>
+        <div class="answers">
+            <input type="radio" name="q3"> Yes
+            <input type="radio" name="q3"> No
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="question-group card">
+    <h3>Capacity to Consent</h3>
+
+    <div class="question">
+        <p>Were you intoxicated, asleep, unconscious, or otherwise unable to give consent?</p>
+        <div class="answers">
+            <input type="radio" name="q4"> Yes
+            <input type="radio" name="q4"> No
+        </div>
+    </div>
+
+    <div class="question">
+        <p>Did someone take advantage of your vulnerability or dependence?</p>
+        <div class="answers">
+            <input type="radio" name="q5"> Yes
+            <input type="radio" name="q5"> No
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="question-group card">
+    <h3>After the Incident</h3>
+
+    <div class="question">
+        <p>Do you feel violated, confused, afraid, or unsure about what happened?</p>
+        <div class="answers">
+            <input type="radio" name="q6"> Yes
+            <input type="radio" name="q6"> No
+        </div>
+    </div>
+
+    <div class="question">
+        <p>Has the person blamed you or minimized what happened?</p>
+        <div class="answers">
+            <input type="radio" name="q7"> Yes
+            <input type="radio" name="q7"> No
+        </div>
+    </div>
+
+</div>
+
+<hr>
+
+<div class="card">
+    <h2>Your Tally</h2>
+
+    <p>Count how many times you selected <strong>"Yes"</strong>:</p>
+
+    <ul>
+        <li><strong>0 Yes:</strong> The experience may not meet common definitions of sexual assault. However, if you feel uncomfortable, support is still available.</li>
+        <li><strong>1–2 Yes:</strong> Some concerning elements may be present. Speaking to a counsellor may help clarify your experience.</li>
+        <li><strong>3 or more Yes:</strong> Your experience strongly aligns with common definitions of sexual assault. What happened is not your fault.</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="card">
+    <h2>Next Steps</h2>
+
+    <p>If your tally suggests assault, you may choose to:</p>
+
+    <div class="actions">
+        <a href="report_assault.php" class="btn report-btn">
+            Report the Incident
+        </a>
+
+        <a href="appointment.php" class="btn counsellor-btn">
+            Set Appointment with a Counsellor
+        </a>
+    </div>
+
+    <p class="support-text">
+        You are not alone. Support is available.  
+        If you are in immediate danger, please contact emergency services.
+    </p>
+</div>
+
+</form>
+
+<a href="tel:+27466037070" class="button">
+            <i class="fa-solid fa-triangular-exclamation"></i> SOS
+        </a>
+
+</div>
+<!--FOOTER-->
+<footer>
+
+    <h6 style="text-align:center" >DEVELOPERS</h6>
+    <p style="text-align:center" ><i style ="color:gray">
+        Caitlin Elliot: g24e2316@campus.ru.ac.za
+        <br>Rowan Fortune: g23f9661@campus.ru.ac.za
+        <br>Ulelethu Rigala: g24r8054@campus.ru.ac.za
+        <br>Kganyiso Sediti: g23s3219@campus.ru.ac.za
+        <br>Othandwayo Myona: g22m3157@campus.ru.ac.za
+        <br>RuCOPING(c) Copyright</i>
+    </p>
+ <!--SOCIALS-->   
+    <div class="socials">
+        <a href="https://www.instagram.com/rhodes_university/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/playlist?list=PLV9WJDAawyhbQb_DSKe3rjc9j_dOykynB"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.facebook.com/groups/706769159431821/"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+    
+</footer>
+
+<script src="Articles/articles.js"></script>
+
+</body>
+</html>
