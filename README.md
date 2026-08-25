@@ -2,6 +2,9 @@
 
 **RUCoping** is a confidential, student-centered digital platform built to break the stigma around mental health and HIV/AIDS at Rhodes University. It provides a secure bridge between students and campus counselors, specifically designed to handle sensitive disclosures with empathy and encryption.
 
+## 🔗 Follow Link To See Mini Demo:
+https://emo-gee.github.io/RUCoping/
+
 ## 🎯 Mission
 To ensure every Rhodes University student has immediate, judgment-free access to mental health triage, accurate HIV/AIDS prevention knowledge, and a protected route to report sexual assault cases—all from the privacy of their device.
 
